@@ -25,11 +25,11 @@
           </UiRadioButton>
         </div>
         <div v-else  key="2" class="user__form">
-          <UiInput v-bind="age" label="Ваш возраст" status="год(-а)/лет"  @keyPress="isInputNumber($event, age)"></UiInput>
-          <UiInput v-bind="growth" label="Рост" status="см" @keyPress="isInputNumber($event, growth)"></UiInput>
-          <UiInput v-bind="currentWeight" label="Текущий вес" status="кг" @keyPress="isInputNumber($event, currentWeight)"></UiInput>
+          <UiInput v-model="age" label="Ваш возраст" status="год(-а)/лет"  @keyPress="isInputNumber($event, age)"></UiInput>
+          <UiInput v-model="growth" label="Рост" status="см" @keyPress="isInputNumber($event, growth)"></UiInput>
+          <UiInput v-model="currentWeight" label="Текущий вес" status="кг" @keyPress="isInputNumber($event, currentWeight)"></UiInput>
           <UiSelect  v-model="targetValue" :options="options" placeholder="Выбрать" label="Цель"></UiSelect>
-          <UiInput v-bind="targetWeight" label="Целевой вес" status="кг" @keyPress="isInputNumber($event, targetWeight)"></UiInput>
+          <UiInput v-model="targetWeight" label="Целевой вес" status="кг" @keyPress="isInputNumber($event, targetWeight)"></UiInput>
         </div>
       </transition>
 
