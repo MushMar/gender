@@ -34,7 +34,7 @@
         </div>
       </transition>
       <div class="user__action">
-        <UiButton @click="toUserForm" :disabled="isDisabledButton">Enter</UiButton>
+        <UiButton @click="toUserForm" :disabled="isDisabledButton">Далее</UiButton>
       </div>
     </div>
   </div>
