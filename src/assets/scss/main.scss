@@ -28,18 +28,3 @@ a {
   text-decoration: none;
 }
 
-// Containers
-
-.container-fluid {
-  width: 81% !important;
-  margin: 0 auto;
-  @media(max-width: 1024px) {
-    width: 80% !important;
-  }
-  @media(max-width: 1024px) {
-    width: 80% !important;
-  }
-  @media(max-width: 600px) {
-    width: 90% !important;
-  }
-}

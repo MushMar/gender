@@ -1,8 +1,9 @@
 <template>
   <div class="v-select">
+    <div v-if="label" class="v-select__label">{{ label }}</div>
     <div class="v-select__input" :class="{'is-visible' : optionsVisible }" @click.stop="optionsVisible = !optionsVisible">
       <div :class="['v-select__inner']">
-        <span v-if="setSelectedOption"> {{setSelectedOption[label]}} </span>
+        <span> {{ _setValue }} </span>
       </div>
       <img src="../../assets/images/svg/back-icon.svg" alt="" class="v-select__icon" :class="{'rotate': optionsVisible}">
     </div>
@@ -14,7 +15,7 @@
             :class="{'selected' : option.checked}"
             @click="selectOption(option, key)"
       >
-        {{ option[label] }}
+        {{ option[labelOption] }}
       </span>
     </div>
   </div>
@@ -35,6 +36,10 @@ export default {
     },
     label: {
       type: String,
+      default: '',
+    },
+    labelOption: {
+      type: String,
       default: 'name',
     },
     trackBy: {
@@ -47,13 +52,16 @@ export default {
       optionsVisible: false,
     }
   },
+  mounted() {
+    document.addEventListener('click', this.hideSelect)
+  },
   computed: {
     replyOptions() {
       return JSON.parse(JSON.stringify(this.options))
     },
     _setValue() {
       if(typeof this.value === 'object') {
-        return this.setSelectedOption[this.label]
+        return this.setSelectedOption[this.labelOption]
       }else {
         return  this.placeholder
       }
@@ -73,6 +81,9 @@ export default {
     hideSelect() {
       this.optionsVisible = false
     },
+  },
+  beforeDestroy() {
+    document.removeEventListener('click', this.hideSelect)
   }
 }
 </script>
@@ -82,12 +93,20 @@ export default {
   position: relative;
   width: 100%;
   margin-bottom: 29px;
+  &__label {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #A4A7B4;
+    margin-left: 15px;
+    margin-bottom: 8px;
+  }
   &__container {
     position: relative;
   }
   &__icon {
     position: absolute;
-    top: calc(50%);
+    top: calc(50% + 13px);
     transform: translateY(-50%) rotate(-90deg);
     right: 25px;
     width: 10px;
@@ -123,6 +142,7 @@ export default {
     box-shadow: 4px 4px 8px rgba(11, 11, 17, 0.91), -1px -1px 13px rgba(255, 255, 255, 0.34);
     border-radius: 0 0 25px 25px;
     z-index: 9999;
+    overflow: hidden;
   }
 
 }
