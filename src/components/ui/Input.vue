@@ -94,7 +94,6 @@ export default {
     position: absolute;
     bottom: 13px;
     right: 25px;
-    //transform: translateY(-50%);
     font-weight: normal;
     font-size: 14px;
     line-height: 17px;

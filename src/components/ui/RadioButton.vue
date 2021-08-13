@@ -19,11 +19,6 @@ export default {
     value:[Number, String],
     label: String,
   },
-  data() {
-    return {
-
-    }
-  },
   methods: {
     handleChange(evt) {
       this.$emit('input', evt.target.value)

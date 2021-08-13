@@ -11,7 +11,6 @@
           </div>
           <div class="header__name"> {{ userName }} </div>
         </div>
-
       </div>
 
       <transition name="slide-fade" mode="out-in">
@@ -33,9 +32,11 @@
           <UiInput v-bind="targetWeight" label="Целевой вес" status="кг" @keyPress="isInputNumber($event, targetWeight)"></UiInput>
         </div>
       </transition>
+
       <div class="user__action">
         <UiButton @click="toUserForm" :disabled="isDisabledButton">Далее</UiButton>
       </div>
+
     </div>
   </div>
 </template>
@@ -53,7 +54,6 @@ export default {
       targetWeight: '',
       isGender: false,
       userSelect: '',
-
       targetValue: '',
       options: [
         {
@@ -129,7 +129,6 @@ export default {
 .user {
   display: flex;
   flex-direction: column;
-  //justify-content: space-around;
   justify-content: space-between;
   position: relative;
   max-width: 375px;
@@ -137,16 +136,12 @@ export default {
   min-height: 800px;
   border-radius: 40px;
   background: #2B2E3B;
-  //padding: 0 20px;
   box-sizing: border-box;
   &.padding {
     padding: 0 39px;
   }
   &__header {
     height: 100px;
-    //position: absolute;
-    //top: 0;
-    //left: 0;
     width: 100%;
     background: #292B38;
     border-radius: 40px 40px 0 0;
@@ -155,17 +150,14 @@ export default {
     box-sizing: border-box;
   }
   &__admin {
-    //margin-top: 100px;
     display: flex;
     justify-content: space-around;
     padding: 0 20px;
   }
   &__form {
-    //margin-top: 100px;
     padding: 0 20px;
   }
   &__action {
-    //margin-top: 94px;
     padding: 0 20px;
     margin-bottom: 44px;
   }
